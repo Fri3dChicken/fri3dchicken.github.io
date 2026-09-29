@@ -1,0 +1,52 @@
+/* Plain: the brand's one page style. Pine is the family colour (docs/brand.md in each app). */
+:root {
+  --bg: #f6f7f5;
+  --fg: #16201b;
+  --muted: #56615b;
+  --pine: #1f5f4a;
+  --line: #dfe4e0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1412;
+    --fg: #e8eee9;
+    --muted: #9aa8a0;
+    --pine: #7cc4a8;
+    --line: #26302b;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+h1, h2 { line-height: 1.2; text-wrap: balance; }
+h1 { font-size: 2.2rem; margin: 0 0 0.5rem; }
+h1.brand { font-size: 3rem; color: var(--pine); letter-spacing: -0.02em; }
+h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+p, ul { margin: 0 0 1rem; }
+a { color: var(--pine); }
+.eyebrow { font-weight: 700; margin-bottom: 0.25rem; }
+.eyebrow a { text-decoration: none; }
+.meta { color: var(--muted); font-size: 0.95rem; }
+.lede { font-size: 1.1rem; }
+.promise { font-weight: 700; font-size: 1.2rem; }
+.email { user-select: all; }
+.apps { list-style: none; padding: 0; }
+.apps li {
+  border-top: 1px solid var(--line);
+  padding: 0.75rem 0;
+  display: grid;
+  gap: 0.15rem;
+}
+.apps span { color: var(--muted); }
+.links { margin-top: 2rem; }
