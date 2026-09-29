@@ -1,52 +1,113 @@
-/* Plain: the brand's one page style. Pine is the family colour (docs/brand.md in each app). */
+/* Fri3dChicken · Plain. One narrow, letter-like column: a plain-spoken promise, the maker's reasons,
+   a checkable permissions receipt, then the apps. Pine is the family colour; yolk marks the "3". */
 :root {
-  --bg: #f6f7f5;
-  --fg: #16201b;
-  --muted: #56615b;
+  --bg: #f4f6f3;
+  --surface: #ffffff;
+  --fg: #14201a;
+  --muted: #57645c;
+  --line: #d9e0db;
   --pine: #1f5f4a;
-  --line: #dfe4e0;
+  --pine-soft: #e3eee8;
+  --yolk: #c98a12;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f1412;
-    --fg: #e8eee9;
-    --muted: #9aa8a0;
-    --pine: #7cc4a8;
-    --line: #26302b;
+    --bg: #0e1411; --surface: #151d19; --fg: #e6ece8; --muted: #97a69d;
+    --line: #25302a; --pine: #7cc4a8; --pine-soft: #1a2a23; --yolk: #f0b84a;
     color-scheme: dark;
   }
 }
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
-main {
-  max-width: 40rem;
+.wrap {
+  max-width: 44rem;
   margin: 0 auto;
-  padding: 3rem 1.25rem 4rem;
-}
-h1, h2 { line-height: 1.2; text-wrap: balance; }
-h1 { font-size: 2.2rem; margin: 0 0 0.5rem; }
-h1.brand { font-size: 3rem; color: var(--pine); letter-spacing: -0.02em; }
-h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
-p, ul { margin: 0 0 1rem; }
-a { color: var(--pine); }
-.eyebrow { font-weight: 700; margin-bottom: 0.25rem; }
-.eyebrow a { text-decoration: none; }
-.meta { color: var(--muted); font-size: 0.95rem; }
-.lede { font-size: 1.1rem; }
-.promise { font-weight: 700; font-size: 1.2rem; }
-.email { user-select: all; }
-.apps { list-style: none; padding: 0; }
-.apps li {
-  border-top: 1px solid var(--line);
-  padding: 0.75rem 0;
+  padding-inline: 1.25rem;
+  padding-block: 1.5rem 4rem;
   display: grid;
-  gap: 0.15rem;
+  gap: 3.25rem;
 }
-.apps span { color: var(--muted); }
-.links { margin-top: 2rem; }
+a { color: var(--pine); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--yolk); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.6rem; font-weight: 800; }
+h3 { font-size: 1.15rem; font-weight: 800; }
+p, ul { margin: 0; max-width: 38rem; }
+section { display: grid; gap: 1rem; }
+.muted { color: var(--muted); }
+.eyebrow { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+.eyebrow a { color: inherit; text-decoration: none; }
+.three { color: var(--yolk); }
+
+/* Home */
+.hero { gap: 1.1rem; padding-top: 1.5rem; }
+.hero h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); font-weight: 800; letter-spacing: -0.02em; }
+.hero h1 span { display: block; }
+.hero .intro { font-size: 1.2rem; }
+.why blockquote { margin: 0; padding-left: 1.1rem; border-left: 3px solid var(--pine); font-size: 1.12rem; max-width: 38rem; }
+.promise-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.promise-list div { display: grid; gap: 0.35rem; align-content: start; }
+.promise-list h3 { color: var(--pine); }
+
+.receipt {
+  font-family: var(--font-mono); font-size: 0.9rem;
+  background: var(--surface); border: 1px dashed var(--line); border-radius: 10px;
+  padding: 1rem 1.1rem; display: grid; gap: 0.35rem; max-width: 30rem;
+}
+.receipt .title { font-weight: 500; }
+.receipt .row { display: flex; gap: 0.5rem; }
+.receipt .row span:first-child { flex: 0 0 auto; }
+.receipt .dots { flex: 1 1 auto; border-bottom: 1px dotted var(--muted); transform: translateY(-0.35em); min-width: 1rem; }
+.receipt .val { color: var(--pine); flex: 0 0 auto; }
+.receipt .note { color: var(--muted); font-family: var(--font-body); font-size: 0.85rem; margin-top: 0.35rem; }
+
+.app-card {
+  display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: 1rem; text-decoration: none; color: inherit;
+}
+.app-card:hover { border-color: var(--pine); }
+.app-card .body { display: grid; gap: 0.2rem; min-width: 0; }
+.chip { justify-self: start; font-size: 0.78rem; font-weight: 700; color: var(--pine); background: var(--pine-soft); border-radius: 999px; padding: 0.1rem 0.6rem; }
+/* The app icon keeps its own colours in either theme, as on a phone. */
+.icon { width: 4rem; height: 4rem; border-radius: 26%; background: #1f5f4a; display: grid; place-items: center; flex: none; }
+.icon svg { width: 60%; height: 60%; }
+.icon.big { width: 6rem; height: 6rem; }
+
+.contact { border-top: 1px solid var(--line); padding-top: 1.5rem; gap: 0.6rem; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.email { font-family: var(--font-mono); user-select: all; overflow-wrap: anywhere; }
+.copy {
+  font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+  border-radius: 8px; padding: 0.3rem 0.7rem; min-height: 2.25rem;
+}
+
+/* App page */
+.back { font-weight: 700; text-decoration: none; }
+.app-head { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+.app-head h1 { font-size: clamp(2.4rem, 8vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+.app-head .tagline { font-size: 1.15rem; }
+.get { background: var(--pine-soft); border-radius: 16px; padding: 1.1rem 1.2rem; gap: 0.6rem; }
+.get strong { font-family: var(--font-display); font-size: 1.2rem; }
+.features { display: grid; gap: 0.9rem; padding: 0; list-style: none; }
+.features li { display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.6rem; }
+.features li::before { content: "▸"; color: var(--pine); font-weight: 700; }
+
+/* Privacy policy */
+.policy h1 { font-size: clamp(2.2rem, 7vw, 3rem); font-weight: 800; }
+.policy h2 { font-size: 1.2rem; margin-top: 0.5rem; }
+.policy ul { padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.lede { font-size: 1.12rem; }

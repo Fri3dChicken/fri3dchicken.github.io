@@ -3,26 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plain</title>
-<meta name="description" content="Simple apps with no ads, no paywalls and no data collection.">
+<title>Fri3dChicken · Plain apps</title>
+<meta name="description" content="Plain apps by Fri3dChicken: simple apps with no ads, no paywalls and no data collection.">
+<meta property="og:title" content="Fri3dChicken · Plain apps">
+<meta property="og:description" content="No ads. No paywalls. Nothing collected.">
+<meta property="og:image" content="https://fri3dchicken.github.io/icon-512.png">
+<meta property="og:url" content="https://fri3dchicken.github.io/">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <h1 class="brand">Plain</h1>
-  <p class="promise">No ads. No paywalls. Nothing collected.</p>
-  <p class="lede">Simple apps that do one job well. Every feature is free for everyone, your data stays on your device, and the only way to pay is an optional tip.</p>
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Fri<span class="three">3</span>dChicken · independent app maker</span>
+    <h1><span>No ads.</span><span>No paywalls.</span><span>Nothing collected.</span></h1>
+    <p class="intro">I build <strong>Plain</strong> apps: small tools that do one job well and then leave you alone.</p>
+  </section>
 
-  <h2>Apps</h2>
-  <ul class="apps">
-    <li>
-      <strong>Plain Gym</strong>
-      <span>A quick workout log with history, records and progress charts. Android, in testing.</span>
-    </li>
-  </ul>
+  <section class="why" aria-labelledby="why-title">
+    <h2 id="why-title">Why I'm doing this</h2>
+    <blockquote>I'm a solutions architect in Australia, and I got tired of apps that bury simple tools under ads, lock basic features behind subscriptions, and quietly collect data they don't need. So I'm building the opposite: small, honest apps that do one job well, keep your data on your phone, and cost nothing. Plain Gym is the first. I built it for my own training and use it every day.</blockquote>
+  </section>
 
-  <p class="links"><a href="privacy.html">Privacy policy</a></p>
-  <p class="meta">Made by Fri3dChicken · <span class="email">fri3dchicken.dev@outlook.com</span></p>
+  <section aria-labelledby="promise-title">
+    <h2 id="promise-title">What "Plain" means</h2>
+    <div class="promise-list">
+      <div><h3>No ads</h3><p class="muted">No ad networks and no tracking code, anywhere in the app.</p></div>
+      <div><h3>No paywalls</h3><p class="muted">Every feature is free for everyone. If you want to say thanks, there's an optional tip.</p></div>
+      <div><h3>Nothing collected</h3><p class="muted">No accounts, no analytics. Your data lives on your phone, and backups go only where you send them.</p></div>
+    </div>
+    <div class="receipt" aria-label="What Plain Gym asks of your phone">
+      <span class="title">Plain Gym · what it asks of your phone</span>
+      <div class="row"><span>Internet access</span><span class="dots"></span><span class="val">not requested</span></div>
+      <div class="row"><span>Location</span><span class="dots"></span><span class="val">not requested</span></div>
+      <div class="row"><span>Camera &amp; photos</span><span class="dots"></span><span class="val">not requested</span></div>
+      <div class="row"><span>Contacts</span><span class="dots"></span><span class="val">not requested</span></div>
+      <div class="row"><span>Data collected</span><span class="dots"></span><span class="val">none</span></div>
+      <p class="note">It has two small permissions, both for the optional tip through Google Play: billing, and checking whether the phone is online.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="apps-title">
+    <h2 id="apps-title">Apps</h2>
+    <a class="app-card" href="gym/">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#F2F5F1" d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></span>
+      <span class="body">
+        <h3>Plain Gym</h3>
+        <span class="muted">A quick, private workout log with records and progress charts.</span>
+        <span class="chip">Android · in testing</span>
+      </span>
+    </a>
+    <p class="muted">More Plain apps are on the way.</p>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Say hello</h2>
+    <div class="email-row">
+      <span class="email">fri3dchicken.dev@outlook.com</span>
+      <button type="button" class="copy" data-copy="fri3dchicken.dev@outlook.com">Copy</button>
+    </div>
+    <p class="muted"><a href="privacy.html">Privacy policy</a> · Plain is a family of apps by Fri3dChicken.</p>
+  </section>
 </main>
+<script src="copy.js"></script>
 </body>
 </html>
